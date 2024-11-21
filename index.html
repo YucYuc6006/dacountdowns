@@ -30,8 +30,8 @@
 </div>
 
 <script>
-const targetDateUTC = new Date(Date.UTC(2024, 10, 23, 8, 0, 0));
-const targetDateLocal = new Date(targetDateUTC.toLocaleString());
+const targetDateUTC = new Date(Date.UTC(2024, 10, 23, 8, 0, 0));  // Set target date as 8 AM UTC on November 23, 2024
+const targetDateLocal = new Date(targetDateUTC.getTime() - targetDateUTC.getTimezoneOffset() * 60000);  // Adjust to local time
 
 const countdownInterval = setInterval(function() {
     const now = new Date().getTime();
