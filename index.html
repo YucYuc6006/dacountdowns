@@ -30,22 +30,29 @@
 </div>
 
 <script>
-const targetDateUTC = new Date(Date.UTC(2024, 10, 23, 8, 0, 0));
+// Set target time as 8 AM UTC on November 23, 2024
+const targetDateUTC = new Date(Date.UTC(2024, 10, 23, 8, 0, 0)); 
 
+// Update the countdown every second
 const countdownInterval = setInterval(function() {
-    const now = new Date().getTime();
-    const distance = targetDateUTC.getTime() - now;
+    const now = new Date(); // Get the current time in local timezone
 
+    // Calculate the remaining time by comparing the target time (UTC) to the current local time
+    const distance = targetDateUTC.getTime() - now.getTime();
+
+    // Calculate days, hours, minutes, and seconds
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+    // Display the result
     document.getElementById("days").textContent = days;
     document.getElementById("hours").textContent = hours;
     document.getElementById("minutes").textContent = minutes;
     document.getElementById("seconds").textContent = seconds;
 
+    // If the countdown reaches zero, display a message
     if (distance < 0) {
         clearInterval(countdownInterval);
         document.getElementById("countdown").textContent = "Arcane Season 2 Part 3 is here!";
