@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: url('https://i.imgur.com/wqHduUJ.jpeg') no-repeat center center fixed;
+    background: url('https://i.imgur.com/CknSUIf.jpeg') no-repeat center center fixed; /* Desktop background */
     background-size: cover;
     color: #fff;
     display: flex;
@@ -8,6 +8,13 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+}
+
+@media (max-width: 768px) {
+    body {
+        background: url('https://i.imgur.com/ay2lGyS.jpeg') no-repeat center center fixed; 
+        background-size: cover;
+    }
 }
 
 .timer {
