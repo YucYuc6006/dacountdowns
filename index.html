@@ -8,14 +8,14 @@
     <meta property="og:title" content="Arcane Season 2 Part 3 Countdown">
     <meta property="og:description" content="Countdown to the release of Arcane Season 2 Part 3. Stay updated with the time left until the show airs.">
     <meta property="og:image" content="https://i.imgur.com/wqHduUJ.jpeg">
-    <meta property="og:url" content="https://dacountdowns.site">
+    <meta property="og:url" content="https://yourwebsite.com/arcane-countdown">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Arcane Season 2 Part 3 Countdown">
     <meta name="twitter:description" content="Countdown to the release of Arcane Season 2 Part 3. Stay updated with the time left until the show airs.">
     <meta name="twitter:image" content="https://i.imgur.com/wqHduUJ.jpeg">
-    <meta name="twitter:url" content="https://dacountdowns.site">
+    <meta name="twitter:url" content="https://yourwebsite.com/arcane-countdown">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -30,12 +30,11 @@
 </div>
 
 <script>
-const targetDateUTC = new Date(Date.UTC(2024, 10, 23, 8, 0, 0));  // Set target date as 8 AM UTC on November 23, 2024
-const targetDateLocal = new Date(targetDateUTC.getTime() - targetDateUTC.getTimezoneOffset() * 60000);  // Adjust to local time
+const targetDateUTC = new Date(Date.UTC(2024, 10, 23, 8, 0, 0));
 
 const countdownInterval = setInterval(function() {
     const now = new Date().getTime();
-    const distance = targetDateLocal - now;
+    const distance = targetDateUTC.getTime() - now;
 
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
