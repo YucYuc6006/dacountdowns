@@ -8,14 +8,14 @@
     <meta property="og:title" content="Arcane Season 2 Part 3 Countdown">
     <meta property="og:description" content="Countdown to the release of Arcane Season 2 Part 3. Stay updated with the time left until the show airs.">
     <meta property="og:image" content="https://i.imgur.com/wqHduUJ.jpeg">
-    <meta property="og:url" content="https://dacountdowns.site">
+    <meta property="og:url" content="https://yourwebsite.com/arcane-countdown">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Arcane Season 2 Part 3 Countdown">
     <meta name="twitter:description" content="Countdown to the release of Arcane Season 2 Part 3. Stay updated with the time left until the show airs.">
     <meta name="twitter:image" content="https://i.imgur.com/wqHduUJ.jpeg">
-    <meta name="twitter:url" content="https://dacountdowns.site">
+    <meta name="twitter:url" content="https://yourwebsite.com/arcane-countdown">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -30,16 +30,12 @@
 </div>
 
 <script>
-const targetDate = (function() {
-    let date = new Date(Date.UTC(2024, 10, 23, 0, 0, 0));
-    const localDate = new Date(date.toLocaleString('en-US', { timeZoneName: 'short' }));
-    localDate.setHours(localDate.getHours() + 8);
-    return localDate.getTime();
-})();
+const targetDateUTC = new Date(Date.UTC(2024, 10, 23, 8, 0, 0));
+const targetDateLocal = new Date(targetDateUTC.toLocaleString());
 
 const countdownInterval = setInterval(function() {
     const now = new Date().getTime();
-    const distance = targetDate - now;
+    const distance = targetDateLocal - now;
 
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
