@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Arcane Season 2 Part 3 Countdown</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+
+<div class="timer">
+    <h1>Countdown to Arcane Season 2 Part 3</h1>
+    <div id="countdown" class="countdown">
+        <span id="days"></span> Days 
+        <span id="hours"></span> Hours 
+        <span id="minutes"></span> Minutes 
+        <span id="seconds"></span> Seconds
+    </div>
+</div>
+
+<script>
+const targetDate = (function() {
+    let date = new Date("2024-11-23T00:00:00Z"); 
+    const currentDay = date.getDay(); 
+    const daysUntilSaturday = (6 - currentDay + 7) % 7; 
+    date.setDate(date.getDate() + daysUntilSaturday);
+    date.setHours(8, 0, 0, 0); 
+    return date.getTime(); 
+})();
+
+
+    const countdownInterval = setInterval(function() {
+
+        const now = new Date().getTime();
+
+        const distance = targetDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").textContent = days;
+        document.getElementById("hours").textContent = hours;
+        document.getElementById("minutes").textContent = minutes;
+        document.getElementById("seconds").textContent = seconds;
+
+        if (distance < 0) {
+            clearInterval(countdownInterval);
+            document.getElementById("countdown").textContent = "Arcane Season 2 Part 3 is here!";
+        }
+    }, 1000);
+</script>
+
+</body>
+</html>
